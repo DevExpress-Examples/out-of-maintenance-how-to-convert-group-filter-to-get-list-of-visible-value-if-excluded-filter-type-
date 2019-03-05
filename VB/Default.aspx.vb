@@ -88,7 +88,7 @@ Public Class FilterInfo
             Return New FilterInfo(){}
         End If
 
-        Dim currentField = filterValues.First().Field
+        Dim currentField = filterValues.Items(0).Field
         Dim uniqueValues = group.GetUniqueValues(parentValues)
         Dim invertedFilterInfo = New List(Of FilterInfo)()
         For Each v As Object In uniqueValues

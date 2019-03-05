@@ -85,8 +85,8 @@ public class FilterInfo
     private static FilterInfo[] GetConvertedFilerInfo(PivotGridGroup group, PivotGroupFilterValuesCollection filterValues, object[] parentValues) {
         if( !group.FilterValues.HasFilter || filterValues == null || filterValues.Count== 0 )
             return new FilterInfo[0];
-        
-        var currentField = filterValues.First().Field;
+
+        var currentField = filterValues.Items[0].Field;
         var uniqueValues = group.GetUniqueValues(parentValues);
         var invertedFilterInfo = new List<FilterInfo>();
         foreach (object v in uniqueValues) {
