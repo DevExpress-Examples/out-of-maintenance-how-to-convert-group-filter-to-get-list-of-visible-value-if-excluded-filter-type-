@@ -22,32 +22,6 @@ public partial class _Default : System.Web.UI.Page
         string result = FilterInfo.WriterHierachyToString(fi, "");
         ASPxPivotGrid2.JSProperties.Add("cpFilter", result);
     }
-
-    protected void ASPxPivotGrid2_CustomGroupInterval(object sender, PivotCustomGroupIntervalEventArgs e)
-    {
-        if (e.Field.UnboundFieldName != "fieldCompanyGroup") return;
-        if (Convert.ToChar(e.Value.ToString()[0]) < 'F')
-        {
-            e.GroupValue = "A-E";
-            return;
-        }
-        if (Convert.ToChar(e.Value.ToString()[0]) > 'E' && Convert.ToChar(e.Value.ToString()[0]) < 'P')
-        {
-            e.GroupValue = "F-O";
-            return;
-        }
-        if (Convert.ToChar(e.Value.ToString()[0]) > 'O' && Convert.ToChar(e.Value.ToString()[0]) < 'T')
-        {
-            e.GroupValue = "P-S";
-            return;
-        }
-        if (Convert.ToChar(e.Value.ToString()[0]) > 'S')
-            e.GroupValue = "T-Z";
-    }
-
-
-
-
 }
 
 public class FilterInfo

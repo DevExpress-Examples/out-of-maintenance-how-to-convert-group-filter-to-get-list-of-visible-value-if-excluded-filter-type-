@@ -24,31 +24,6 @@ Partial Public Class _Default
         Dim result As String = FilterInfo.WriterHierachyToString(fi, "")
         ASPxPivotGrid2.JSProperties.Add("cpFilter", result)
     End Sub
-
-    Protected Sub ASPxPivotGrid2_CustomGroupInterval(ByVal sender As Object, ByVal e As PivotCustomGroupIntervalEventArgs)
-        If e.Field.UnboundFieldName <> "fieldCompanyGroup" Then
-            Return
-        End If
-        If Convert.ToChar(e.Value.ToString().Chars(0)) < "F"c Then
-            e.GroupValue = "A-E"
-            Return
-        End If
-        If Convert.ToChar(e.Value.ToString().Chars(0)) > "E"c AndAlso Convert.ToChar(e.Value.ToString().Chars(0)) < "P"c Then
-            e.GroupValue = "F-O"
-            Return
-        End If
-        If Convert.ToChar(e.Value.ToString().Chars(0)) > "O"c AndAlso Convert.ToChar(e.Value.ToString().Chars(0)) < "T"c Then
-            e.GroupValue = "P-S"
-            Return
-        End If
-        If Convert.ToChar(e.Value.ToString().Chars(0)) > "S"c Then
-            e.GroupValue = "T-Z"
-        End If
-    End Sub
-
-
-
-
 End Class
 
 Public Class FilterInfo
